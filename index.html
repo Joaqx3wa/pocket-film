@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111112">
+  <meta name="description" content="POCKET//FILM — una interfaz de revelado analógico.">
+  <title>POCKET//FILM — Revelado analógico</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-state="empty" data-preset="none" data-stamp="on">
+  <header class="topbar">
+    <a class="wordmark" href="#" aria-label="POCKET slash FILM">
+      <span>POCKET</span><i>//</i><span>FILM</span>
+    </a>
+    <div class="top-actions">
+      <button class="button button-muted" type="button" data-open-file>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5h7l2 2h9v9H3z"/><path d="M3 7.5V5h7l2 2"/></svg>
+        Abrir foto
+      </button>
+      <button class="button button-muted reset" type="button" disabled>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11a8 8 0 1 1 2.3 5.7"/><path d="M4 5v6h6"/></svg>
+        Restablecer
+      </button>
+      <div class="file-meta" aria-live="polite">
+        <span class="meta-empty">Sin archivo seleccionado <b>— × — px</b></span>
+        <span class="meta-selected"><span class="file-name"></span> <b class="file-dimensions"></b></span>
+      </div>
+    </div>
+    <button class="button button-orange save-top" type="button" aria-disabled="true">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 16v4h14v-4"/></svg>
+      Guardar foto
+    </button>
+  </header>
+
+  <main class="workspace">
+    <section class="photo-column" aria-label="Vista de foto">
+      <div class="photo-toolbar">
+        <span class="status-label"><i></i> Foto seleccionada</span>
+        <button class="button change-photo" type="button" data-open-file>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h13l-3-3m6 11H7l3 3"/><path d="M17 5 20 8l-3 3M7 19l-3-3 3-3"/></svg>
+          Cambiar foto
+        </button>
+        <span class="photo-file-meta" aria-live="polite"><span class="photo-file-name"></span><span class="photo-file-dimensions"></span></span>
+      </div>
+      <div class="photo-frame" aria-label="Marco de previsualización">
+        <div class="viewfinder">
+          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+          <div class="upload-dropzone" role="button" tabindex="0" data-open-file aria-label="Seleccionar o arrastrar una imagen">
+            <span class="upload-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5"/><path d="M5 13v6h14v-6"/></svg></span>
+            <strong>Arrastra una imagen aquí</strong>
+            <span class="upload-formats">JPG o PNG</span>
+            <span class="upload-click-hint">o haz clic para seleccionar</span>
+          </div>
+          <div class="film-mark" aria-hidden="true">
+            <span class="guide guide-h"></span><span class="guide guide-v"></span>
+            <span class="film-outer"></span><span class="film-inner"></span>
+            <span class="film-word">FILM</span>
+          </div>
+          <div class="empty-copy">
+            <h1>Carga tu foto para<br>revelar</h1>
+            <p>Formatos JPG o PNG</p>
+            <button class="button select-photo" type="button" data-open-file>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M4 7V4m0 3v13h16V9h-6"/><path d="M15 3v6m-3-3h6M8 16l2.5-3 2 2 1.5-2 3 4H8z"/></svg>
+              Seleccionar foto
+            </button>
+            <span class="drop-hint">O arrastra y suelta aquí</span>
+          </div>
+          <div class="photo-content">
+            <img class="sample-photo" alt="Foto seleccionada">
+            <img class="glow-layer" alt="" aria-hidden="true">
+            <canvas class="fisheye-layer" aria-hidden="true"></canvas>
+            <span class="date-stamp">2026/10/11</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="side-column">
+      <section class="panel preset-panel" aria-labelledby="preset-title">
+        <div class="panel-heading">
+          <h2 id="preset-title"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h12v14H4z"/><path d="M8 3h12v14"/><circle cx="8" cy="9" r="1"/><path d="m5 17 4-4 2 2 2-3 3 5"/></svg>Carrete de presets</h2>
+          <span class="count">29 estilos</span>
+        </div>
+        <div class="preset-list" role="group" aria-label="Estilos de cámara, frames y looks de color">
+          <section class="preset-group" aria-label="Estilos de cámara">
+            <h3 class="preset-group-title">Estilos de cámara</h3>
+            <div class="preset-options">
+          <button class="preset-card" type="button" data-preset="digicam" disabled>
+            <span class="preset-number">01</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></span><span class="preset-name">Digicam<small>Sello digital</small></span><i class="preset-dot"></i>
+          </button>
+          <button class="preset-card" type="button" data-preset="vhs" disabled>
+            <span class="preset-number">02</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="1"/><path d="m16 10 5-3v10l-5-3"/></svg></span><span class="preset-name">VHS<small>Líneas CRT</small></span><i class="preset-dot"></i>
+          </button>
+          <button class="preset-card" type="button" data-preset="bwfilm" disabled>
+            <span class="preset-number">03</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 0 0 16z"/></svg></span><span class="preset-name">B&amp;W Film<small>Blanco y negro</small></span><i class="preset-dot"></i>
+          </button>
+          <button class="preset-card" type="button" data-preset="flash" disabled>
+            <span class="preset-number">04</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 13h7l-1 9 10-13h-7z"/></svg></span><span class="preset-name">Flash 2000s<small>Flash compacto</small></span><i class="preset-dot"></i>
+          </button>
+          <button class="preset-card" type="button" data-preset="grain" disabled>
+            <span class="preset-number">05</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="18" cy="7" r="1"/><circle cx="8" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="5" cy="18" r="1"/><circle cx="12" cy="17" r="1"/><circle cx="19" cy="18" r="1"/></svg></span><span class="preset-name">Grano<small>Textura analógica</small></span><i class="preset-dot"></i>
+          </button>
+          <button class="preset-card" type="button" data-preset="lightleak" disabled>
+            <span class="preset-number">06</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3M4.9 4.9 7 7m10 10 2.1 2.1m0-14.2L17 7M7 17l-2.1 2.1"/></svg></span><span class="preset-name">Fuga de luz<small>Destello cálido</small></span><i class="preset-dot"></i>
+          </button>
+          <button class="preset-card" type="button" data-preset="vignette" disabled>
+            <span class="preset-number">07</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="12" r="5"/><path d="M3 8V5a2 2 0 0 1 2-2h3m8 0h3a2 2 0 0 1 2 2v3M3 16v3a2 2 0 0 0 2 2h3m8 0h3a2 2 0 0 0 2-2v-3"/></svg></span><span class="preset-name">Viñeta<small>Bordes oscurecidos</small></span><i class="preset-dot"></i>
+          </button>
+          <button class="preset-card" type="button" data-preset="halation" disabled>
+            <span class="preset-number">08</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7"/><path d="M12 1v2m0 18v2M1 12h2m18 0h2"/></svg></span><span class="preset-name">Halation<small>Halo sobre las luces</small></span><i class="preset-dot"></i>
+          </button>
+          <button class="preset-card" type="button" data-preset="disposable" disabled>
+            <span class="preset-number">09</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="3"/><circle cx="12" cy="12" r="4"/><path d="M8 6h2m5 0h1"/></svg></span><span class="preset-name">Desechable<small>Flash de película</small></span><i class="preset-dot"></i>
+          </button>
+          <button class="preset-card" type="button" data-preset="toycam" disabled>
+            <span class="preset-number">10</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="12" cy="12.5" r="4"/><path d="M7 6l1-3h8l1 3"/></svg></span><span class="preset-name">Toy Camera<small>Lente de juguete</small></span><i class="preset-dot"></i>
+          </button>
+          <button class="preset-card" type="button" data-preset="super8" disabled>
+            <span class="preset-number">11</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 5v14m10-14v14M3 9h4m10 0h4M3 15h4m10 0h4"/></svg></span><span class="preset-name">Super 8<small>Película casera</small></span><i class="preset-dot"></i>
+          </button>
+          <button class="preset-card" type="button" data-preset="fisheye" disabled>
+            <span class="preset-number">12</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M3.5 8.5c3 2 3 5 0 7m17-7c-3 2-3 5 0 7"/></svg></span><span class="preset-name">Ojo de pez<small>Gran angular curvo</small></span><i class="preset-dot"></i>
+          </button>
+          <button class="preset-card" type="button" data-preset="y2k" disabled>
+            <span class="preset-number">13</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="4"/><path d="M6 8h1m10 8h1"/></svg></span><span class="preset-name">Y2K CCD<small>Digital 2000s</small></span><i class="preset-dot"></i>
+          </button>
+          <button class="preset-card" type="button" data-preset="35mm" disabled>
+            <span class="preset-number">14</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8" cy="8" r="1"/><circle cx="8" cy="12" r="1"/><circle cx="8" cy="16" r="1"/><circle cx="16" cy="8" r="1"/><circle cx="16" cy="12" r="1"/><circle cx="16" cy="16" r="1"/></svg></span><span class="preset-name">35mm Film Look<small>Negativo clásico</small></span><i class="preset-dot"></i>
+          </button>
+            </div>
+          </section>
+          <section class="preset-group" aria-label="Frames">
+            <h3 class="preset-group-title">Frames</h3>
+            <div class="preset-options">
+          <button class="preset-card" type="button" data-preset="polaroid" disabled>
+            <span class="preset-number">15</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="1"/><rect x="8" y="8" width="8" height="8"/></svg></span><span class="preset-name">Polaroid<small>Marco instantáneo</small></span><i class="preset-dot"></i>
+          </button>
+          <button class="preset-card" type="button" data-preset="polaroidsx70" disabled>
+            <span class="preset-number">16</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="10" r="5"/><path d="M9 18h6"/></svg></span><span class="preset-name">Polaroid SX-70<small>Revelado suave</small></span><i class="preset-dot"></i>
+          </button>
+          <button class="preset-card" type="button" data-preset="polaroidblack" disabled>
+            <span class="preset-number">17</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1"/><rect x="7" y="6" width="10" height="10"/><path d="M9 18h6"/></svg></span><span class="preset-name">Instant Black<small>Marco oscuro</small></span><i class="preset-dot"></i>
+          </button>
+          <button class="preset-card" type="button" data-preset="polaroiddesign" disabled>
+            <span class="preset-number">18</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><rect x="7" y="6" width="10" height="9"/><path d="M7 18h4m2 0h4"/></svg></span><span class="preset-name">Polaroid Diseño<small>Corazón dibujado</small></span><i class="preset-dot"></i>
+          </button>
+            </div>
+          </section>
+          <section class="preset-group" aria-label="Looks tipo Lightroom">
+            <h3 class="preset-group-title">Looks tipo Lightroom</h3>
+            <div class="preset-options">
+          <button class="preset-card" type="button" data-preset="japan" disabled>
+            <span class="preset-number">19</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span><span class="preset-name">Japan Film<small>Tono cálido</small></span><i class="preset-dot"></i>
+          </button>
+          <button class="preset-card" type="button" data-preset="dreamcore" disabled>
+            <span class="preset-number">20</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 2 1.4 4.6L14 8l-4.6 1.4L8 14 6.6 9.4 2 8l4.6-1.4L8 2Zm10 8 1.2 3.8L23 15l-3.8 1.2L18 20l-1.2-3.8L13 15l3.8-1.2L18 10Z"/><path d="m17 2 .7 2.3L20 5l-2.3.7L17 8l-.7-2.3L14 5l2.3-.7L17 2Z"/></svg></span><span class="preset-name">Dreamcore<small>Tono onírico</small></span><i class="preset-dot"></i>
+          </button>
+          <button class="preset-card" type="button" data-preset="matte" disabled>
+            <span class="preset-number">21</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4v16"/></svg></span><span class="preset-name">Matte Fade<small>Negros suaves</small></span><i class="preset-dot"></i>
+          </button>
+          <button class="preset-card" type="button" data-preset="cinematic" disabled>
+            <span class="preset-number">22</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3z"/><path d="M3 9h18M7 5v4m5-4v4m5-4v4"/></svg></span><span class="preset-name">Cinematic<small>Frío y cálido</small></span><i class="preset-dot"></i>
+          </button>
+          <button class="preset-card" type="button" data-preset="pastel" disabled>
+            <span class="preset-number">23</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="9" r="4"/><circle cx="16" cy="9" r="4"/><circle cx="12" cy="16" r="4"/></svg></span><span class="preset-name">Soft Pastel<small>Suave y claro</small></span><i class="preset-dot"></i>
+          </button>
+          <button class="preset-card" type="button" data-preset="glow" disabled>
+            <span class="preset-number">24</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4M4.9 4.9l2.8 2.8m8.6 8.6 2.8 2.8m0-14.2-2.8 2.8m-8.6 8.6-2.8-2.8"/></svg></span><span class="preset-name">Soft Glow<small>Brillo difuso</small></span><i class="preset-dot"></i>
+          </button>
+          <button class="preset-card" type="button" data-preset="golden" disabled>
+            <span class="preset-number">25</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span><span class="preset-name">Hora dorada<small>Luces ámbar</small></span><i class="preset-dot"></i>
+          </button>
+          <button class="preset-card" type="button" data-preset="coolblue" disabled>
+            <span class="preset-number">26</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20m-8-15 16 10M20 7 4 17"/><path d="m9 5 3-3 3 3m-6 14 3 3 3-3M4 10l-1-4 4-1m14 9 1 4-4 1m0-14 4 1-1 4M6 17l-3 1 1-4"/></svg></span><span class="preset-name">Azul frío<small>Sombras azuladas</small></span><i class="preset-dot"></i>
+          </button>
+          <button class="preset-card" type="button" data-preset="bwdramatic" disabled>
+            <span class="preset-number">27</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4v16m0-16a8 8 0 0 1 0 16"/></svg></span><span class="preset-name">B&amp;W Dramático<small>Contraste intenso</small></span><i class="preset-dot"></i>
+          </button>
+          <button class="preset-card" type="button" data-preset="matrix" disabled>
+            <span class="preset-number">28</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3H4v18h2m12-18h2v18h-2M9 7v3m0 4v3m3-11v2m0 4v4m3-6v3m0 4v2"/></svg></span><span class="preset-name">Matrix<small>Verde digital</small></span><i class="preset-dot"></i>
+          </button>
+          <button class="preset-card" type="button" data-preset="joji" disabled>
+            <span class="preset-number">29</span><span class="preset-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M4.5 7.5l15 9m0-9-15 9"/><circle cx="12" cy="12" r="8"/></svg></span><span class="preset-name">Joji<small>Moody rojizo</small></span><i class="preset-dot"></i>
+          </button>
+        </div>
+          </section>
+        </div>
+        <div class="hint-empty"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01"/></svg>Selecciona una foto para activar los filtros al instante</div>
+      </section>
+
+      <section class="panel date-panel" aria-labelledby="date-title">
+        <div class="panel-heading date-heading">
+          <h2 id="date-title"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="16" height="15" rx="1"/><path d="M8 3v6m8-6v6M4 11h16"/></svg>Sello de fecha</h2>
+          <button class="date-toggle" type="button" role="switch" aria-checked="true" aria-label="Activar o desactivar sello de fecha"><span></span></button>
+        </div>
+        <div class="date-meta"><span>Formato YYYY/MM/DD</span></div>
+        <div class="date-control" aria-label="Selector de fecha Digicam">
+          <svg class="clock-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <strong class="date-display">2026/10/11</strong>
+          <input class="date-input" type="date" aria-label="Elegir fecha para el sello Digicam">
+          <button class="today-button" type="button">Hoy</button>
+          <button class="calendar-button" type="button" aria-label="Elegir fecha"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="1"/><path d="M8 2v6m8-6v6M4 10h16m-9 4 2 2 4-4"/></svg></button>
+        </div>
+        <p class="date-note"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01"/></svg>El sello numérico ámbar <b>AAAA/MM/DD</b> se muestra en la esquina de la foto.</p>
+      </section>
+    </aside>
+  </main>
+
+  <div class="mobile-actions">
+    <button class="button reset-mobile" type="button" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11a8 8 0 1 1 2.3 5.7"/><path d="M4 5v6h6"/></svg>Restablecer</button>
+    <button class="button button-orange save-mobile" type="button" aria-disabled="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 16v4h14v-4"/></svg>Guardar foto</button>
+    <button class="button button-share share-mobile" type="button" aria-disabled="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.2 10.8 7.6-4.6m-7.6 9 7.6 4.6"/></svg>Compartir</button>
+  </div>
+  <input class="file-input" type="file" accept=".jpg,.jpeg,.png,image/jpeg,image/png" aria-label="Seleccionar una foto JPG o PNG">
+  
+  <script src="app.js"></script>
+</body>
+</html>
+
